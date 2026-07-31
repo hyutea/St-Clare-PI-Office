@@ -211,6 +211,16 @@ ${data.deadline}
 ${data.description}
 </p>
 
+<p class="date">
+
+Posted:
+${data.createdAt
+?
+data.createdAt.toDate().toLocaleDateString()
+:
+"Just now"}
+
+</p>
 
 <button class="editBtn" data-id="${item.id}">
 Edit
