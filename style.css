@@ -393,3 +393,54 @@ cursor:pointer;
 font-size:16px;
 
 }
+
+#editSection{
+
+background:white;
+
+padding:25px;
+
+border-radius:12px;
+
+margin-top:20px;
+
+box-shadow:0 5px 15px rgba(0,0,0,.1);
+
+}
+
+
+.card button{
+
+padding:8px 15px;
+
+border:none;
+
+border-radius:6px;
+
+cursor:pointer;
+
+margin-right:8px;
+
+background:#0b3d91;
+
+color:white;
+
+}
+
+
+.card button:hover{
+
+opacity:.85;
+
+}
+
+
+#message{
+
+color:green;
+
+font-weight:bold;
+
+margin-top:15px;
+
+}
