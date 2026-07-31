@@ -143,6 +143,15 @@ document.getElementById(
 
 
 container.innerHTML="";
+
+
+const snapshot =
+await getDocs(
+collection(db,"announcements")
+);
+
+
+
 if(snapshot.empty){
 
 container.innerHTML = `
@@ -153,6 +162,10 @@ container.innerHTML = `
 No announcements
 </h2>
 
+<p>
+No announcements have been posted yet.
+</p>
+
 </div>
 
 `;
@@ -160,12 +173,6 @@ No announcements
 return;
 
 }
-
-
-const snapshot =
-await getDocs(
-collection(db,"announcements")
-);
 
 
 
