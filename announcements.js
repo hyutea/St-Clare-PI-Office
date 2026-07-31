@@ -80,6 +80,28 @@ function displayAnnouncements(category){
 
 
 container.innerHTML="";
+if(allAnnouncements.length === 0){
+
+container.innerHTML = `
+
+<div class="card">
+
+<h2>
+No announcements yet
+</h2>
+
+<p>
+Please check back later.
+</p>
+
+</div>
+
+`;
+
+return;
+
+}
+
 
 
 
