@@ -136,16 +136,13 @@ loadAnnouncements();
 
 async function loadAnnouncements(){
 
-
 const container =
 document.getElementById(
 "dashboardAnnouncements"
 );
 
 
-
 container.innerHTML="";
-
 
 
 const snapshot =
@@ -158,25 +155,31 @@ collection(db,"announcements")
 snapshot.forEach((item)=>{
 
 
-let data=item.data();
-
+const data=item.data();
 
 
 container.innerHTML += `
 
-
 <div class="card">
 
-
-<h2>
-${data.title}
-</h2>
+<h2>${data.title}</h2>
 
 
 <p>
+Category:
 ${data.category}
-|
+</p>
+
+
+<p>
+Priority:
 ${data.priority}
+</p>
+
+
+<p>
+Deadline:
+${data.deadline}
 </p>
 
 
@@ -184,24 +187,26 @@ ${data.priority}
 ${data.description}
 </p>
 
+
 <button onclick="editAnnouncement('${item.id}')">
 Edit
 </button>
+
 
 <button onclick="deleteAnnouncement('${item.id}')">
 Delete
 </button>
 
+
 </div>
 
-
 `;
-
 
 });
 
 
 }
+
 
 
 
@@ -340,6 +345,3 @@ document.getElementById("editSection").style.display="none";
 
 
 loadAnnouncements();
-
-
-});
