@@ -167,6 +167,16 @@ ${data.description}
 
 </p>
 
+<p class="date">
+
+Posted:
+${data.createdAt
+?
+data.createdAt.toDate().toLocaleDateString()
+:
+"Just now"}
+
+</p>
 
 </div>
 
