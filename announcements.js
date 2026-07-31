@@ -100,7 +100,7 @@ item.category===category;
 container.innerHTML += `
 
 
-<div class="card">
+<div class="card priority-${data.priority.toLowerCase()}">
 
 
 <h2>
