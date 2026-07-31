@@ -188,12 +188,12 @@ ${data.description}
 </p>
 
 
-<button onclick="editAnnouncement('${item.id}')">
+<button class="editBtn" data-id="${item.id}">
 Edit
 </button>
 
 
-<button onclick="deleteAnnouncement('${item.id}')">
+<button class="deleteBtn" data-id="${item.id}">
 Delete
 </button>
 
@@ -277,7 +277,26 @@ document.getElementById("editSection").style.display =
 
 };
 
-loadAnnouncements();
+document.addEventListener("click",(e)=>{
+
+
+if(e.target.classList.contains("editBtn")){
+
+editAnnouncement(e.target.dataset.id);
+
+}
+
+
+if(e.target.classList.contains("deleteBtn")){
+
+deleteAnnouncement(e.target.dataset.id);
+
+}
+
+
+});
+
+
 
 document
 .getElementById("saveEditBtn")
@@ -322,4 +341,9 @@ document.getElementById("editSection").style.display="none";
 
 loadAnnouncements();
 
+
 });
+
+
+
+loadAnnouncements();
