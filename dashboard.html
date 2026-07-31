@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Officer Dashboard</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+<header>
+
+<div>
+
+<h1>
+St. Clare PI Office
+</h1>
+
+<p>
+Officer Dashboard
+</p>
+
+</div>
+
+
+<button id="logoutBtn">
+Logout
+</button>
+
+
+</header>
+
+
+
+<main>
+
+
+<section class="login-card">
+
+<h2>
+Create Announcement
+</h2>
+
+
+<input
+id="title"
+placeholder="Title">
+
+
+<select id="category">
+
+<option value="General">
+General
+</option>
+
+<option value="Exams">
+Exams
+</option>
+
+<option value="Sports">
+Sports
+</option>
+
+<option value="Homework">
+Homework
+</option>
+
+</select>
+
+
+
+<input
+id="deadline"
+type="date">
+
+
+
+<select id="priority">
+
+<option value="Low">
+Low
+</option>
+
+<option value="Medium">
+Medium
+</option>
+
+<option value="High">
+High
+</option>
+
+</select>
+
+
+
+<textarea
+id="description"
+placeholder="Announcement description">
+</textarea>
+
+
+<button id="postBtn">
+Post Announcement
+</button>
+
+
+<p id="message"></p>
+
+
+</section>
+
+
+
+<h2>
+Existing Announcements
+</h2>
+
+
+<div id="dashboardAnnouncements">
+
+</div>
+
+
+
+</main>
+
+
+
+<script src="dashboard.js" type="module"></script>
+
+
+</body>
+
+</html>
