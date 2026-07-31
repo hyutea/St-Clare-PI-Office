@@ -160,7 +160,7 @@ const data=item.data();
 
 container.innerHTML += `
 
-<div class="card">
+<div class="card priority-${data.priority.toLowerCase()}">
 
 <h2>${data.title}</h2>
 
