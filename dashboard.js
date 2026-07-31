@@ -218,17 +218,59 @@ loadAnnouncements();
 
 }
 
+let currentEditId = null;
+
+
 window.editAnnouncement = async(id)=>{
 
 
-const newTitle =
-prompt("Enter new title:");
+const snapshot =
+await getDocs(collection(db,"announcements"));
 
 
+snapshot.forEach((item)=>{
 
-if(!newTitle){
-return;
+
+if(item.id === id){
+
+
+const data=item.data();
+
+
+currentEditId=id;
+
+
+document.getElementById("editTitle").value =
+data.title;
+
+
+document.getElementById("editCategory").value =
+data.category;
+
+
+document.getElementById("editDeadline").value =
+data.deadline;
+
+
+document.getElementById("editPriority").value =
+data.priority;
+
+
+document.getElementById("editDescription").value =
+data.description;
+
+
+document.getElementById("editSection").style.display =
+"block";
+
+
 }
+
+
+});
+
+
+};
 
 
 
@@ -255,3 +297,49 @@ loadAnnouncements();
 
 
 loadAnnouncements();
+
+document
+.getElementById("saveEditBtn")
+.addEventListener("click",async()=>{
+
+
+await updateDoc(
+
+doc(db,"announcements",currentEditId),
+
+{
+
+
+title:
+document.getElementById("editTitle").value,
+
+
+category:
+document.getElementById("editCategory").value,
+
+
+deadline:
+document.getElementById("editDeadline").value,
+
+
+priority:
+document.getElementById("editPriority").value,
+
+
+description:
+document.getElementById("editDescription").value
+
+
+}
+
+);
+
+
+
+document.getElementById("editSection").style.display="none";
+
+
+loadAnnouncements();
+
+
+});
