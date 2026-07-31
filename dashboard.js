@@ -20,6 +20,7 @@ addDoc,
 getDocs,
 deleteDoc,
 doc,
+updateDoc,
 serverTimestamp
 
 }
@@ -183,13 +184,13 @@ ${data.priority}
 ${data.description}
 </p>
 
-
-<button onclick="deleteAnnouncement('${item.id}')">
-
-Delete
-
+<button onclick="editAnnouncement('${item.id}')">
+Edit
 </button>
 
+<button onclick="deleteAnnouncement('${item.id}')">
+Delete
+</button>
 
 </div>
 
@@ -210,6 +211,39 @@ window.deleteAnnouncement = async(id)=>{
 await deleteDoc(
 doc(db,"announcements",id)
 );
+
+
+loadAnnouncements();
+
+
+}
+
+window.editAnnouncement = async(id)=>{
+
+
+const newTitle =
+prompt("Enter new title:");
+
+
+
+if(!newTitle){
+return;
+}
+
+
+
+await updateDoc(
+
+doc(db,"announcements",id),
+
+{
+
+title:newTitle
+
+}
+
+);
+
 
 
 loadAnnouncements();
