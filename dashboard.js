@@ -143,6 +143,23 @@ document.getElementById(
 
 
 container.innerHTML="";
+if(snapshot.empty){
+
+container.innerHTML = `
+
+<div class="card">
+
+<h2>
+No announcements
+</h2>
+
+</div>
+
+`;
+
+return;
+
+}
 
 
 const snapshot =
