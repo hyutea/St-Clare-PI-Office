@@ -444,3 +444,29 @@ font-weight:bold;
 margin-top:15px;
 
 }
+
+.priority-high {
+
+background:#ffdddd;
+
+border-left:6px solid #d00000;
+
+}
+
+
+.priority-medium {
+
+background:#fff3cd;
+
+border-left:6px solid #ffb000;
+
+}
+
+
+.priority-low {
+
+background:#ddffdd;
+
+border-left:6px solid #008000;
+
+}
