@@ -277,30 +277,6 @@ document.getElementById("editSection").style.display =
 
 };
 
-
-
-await updateDoc(
-
-doc(db,"announcements",id),
-
-{
-
-title:newTitle
-
-}
-
-);
-
-
-
-loadAnnouncements();
-
-
-}
-
-
-
-
 loadAnnouncements();
 
 document
@@ -345,3 +321,5 @@ document.getElementById("editSection").style.display="none";
 
 
 loadAnnouncements();
+
+});
