@@ -4,11 +4,8 @@ import { db } from "./firebase.js";
 import {
 
 collection,
-
 getDocs,
-
 query,
-
 orderBy
 
 }
@@ -19,46 +16,85 @@ from
 
 
 
-const container = 
-
+const container =
 document.getElementById(
 "announcementContainer"
 );
 
 
 
+let allAnnouncements = [];
+
+
+
 async function loadAnnouncements(){
 
 
-const q = query(
+const q=query(
 
 collection(db,"announcements"),
 
 orderBy(
-
 "createdAt",
-
 "desc"
-
 )
 
 );
 
 
 
-const snapshot = await getDocs(q);
+const snapshot =
+await getDocs(q);
 
 
 
-container.innerHTML="";
+allAnnouncements=[];
 
 
 
 snapshot.forEach((doc)=>{
 
 
-const data = doc.data();
+allAnnouncements.push({
 
+id:doc.id,
+
+...doc.data()
+
+});
+
+
+});
+
+
+displayAnnouncements("All");
+
+
+}
+
+
+
+
+
+function displayAnnouncements(category){
+
+
+container.innerHTML="";
+
+
+
+allAnnouncements
+
+.filter(item=>{
+
+return category==="All" ||
+
+item.category===category;
+
+})
+
+
+.forEach(data=>{
 
 
 container.innerHTML += `
@@ -68,15 +104,11 @@ container.innerHTML += `
 
 
 <h2>
-
 ${data.title}
-
 </h2>
 
 
-
 <div class="info">
-
 
 <span class="badge ${data.category.toLowerCase()}">
 
@@ -93,7 +125,6 @@ ${data.priority}
 
 
 </div>
-
 
 
 <p>
@@ -125,6 +156,48 @@ ${data.description}
 
 
 }
+
+
+
+
+
+document
+.querySelectorAll(".filter")
+.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+document
+.querySelectorAll(".filter")
+.forEach(btn=>
+
+btn.classList.remove("active")
+
+);
+
+
+
+button.classList.add("active");
+
+
+
+displayAnnouncements(
+button.dataset.category
+);
+
+
+
+}
+
+);
+
+
+});
+
 
 
 
